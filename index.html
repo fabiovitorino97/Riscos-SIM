@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Cálculo de Risco</title>
+</head>
+<header>
+    <img src="logo.jpeg" alt="Logo do Serviço de Inspeção Municipal">
+</header>
+<body>
+
+<h2>Cálculo de Risco</h2>
+
+<form id="form-producao" onsubmit="return calcularRisco()">
+    <!-- Área -->
+    <label for="area">Área:</label>
+    <select id="area" name="area" onchange="atualizarCategoria()">
+        <option value="">Selecione</option>
+        <option value="Carne">Carne</option>
+        <option value="LeiteKg">Leite (Kg)</option>
+        <option value="LeiteL">Leite (L)</option>
+        <option value="Mel">Mel</option>
+        <option value="Ovos">Ovos</option>
+        <option value="Pescado">Pescado</option>
+    </select>
+    <br><br>
+
+    <!-- Volume Produzido -->
+    <label for="volume">Volume Produzido:</label>
+    <input type="number" id="volume" name="volume" min="0">
+    <br><br>
+
+    <!-- Categoria -->
+    <label for="categoria">Categoria:</label>
+    <select id="categoria" name="categoria">
+        <option value="">Selecione</option>
+    </select>
+    <br><br>
+
+    <!-- RD (Caracterização do RD) -->
+    <fieldset>
+        <legend>Caracterização do RD:</legend>
+        <input type="checkbox" id="violacao" name="rd" value="violacao">
+        <label for="violacao">Violação dos padrões de identidade e qualidade</label><br>
+
+        <input type="checkbox" id="reclamacao" name="rd" value="reclamacao">
+        <label for="reclamacao">Reclamações, denúncias e demandas formais de consumidores</label><br>
+
+        <input type="checkbox" id="acoes" name="rd" value="acoes">
+        <label for="acoes">Adoção de ações fiscais decorrentes de não conformidades</label><br>
+
+        <input type="checkbox" id="risco" name="rd" value="risco">
+        <label for="risco">Risco à saúde pública, fraude, falsificação ou adulteração</label><br>
+    </fieldset>
+    <br><br>
+    <!-- Botão para limpar os dados -->
+    <button type="button" onclick="limparDados()">Limpar</button>
+    <button type="submit">Calcular</button>
+</form>
+
+<h3>Resultados</h3>
+<p id="resultadoRV">RV: </p>
+<p id="resultadoRP">RP: </p>
+<p id="resultadoRD">RD: </p>
+<p id="resultadoR">R: </p>
+<p id="frequencia">Frequência mínima: </p>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
